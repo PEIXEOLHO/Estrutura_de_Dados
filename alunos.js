@@ -20,8 +20,7 @@ function exibirMenu() {
   console.log("2. Relatório: Nome (ordem crescente)");
   console.log("3. Relatório: RA (ordem decrescente)");
   console.log("4. Relatório: Aprovados (ordem por Nome)");
-  console.log("5. Buscar aluno por RA");
-  console.log("6. Sair");
+  console.log("5. Sair");
   
   rl.question("Escolha uma opção: ", handleMenu);
 }
@@ -48,13 +47,8 @@ function handleMenu(opcao) {
       exibirMenu();
       break;
    
-    case "5":
-      rl.question("Digite o RA do aluno: ", ra => {
-        buscarAlunoPorRA(ra);
-        exibirMenu();
-      });
-      break;
-      case "6":
+    
+      case "5":
         console.log("Encerrando o programa.");
         rl.close();
         break;
@@ -118,14 +112,6 @@ function mostrarAlunos(lista) {
   });
 }
 
-function buscarAlunoPorRA(raBuscado) {
-  const aluno = alunos.find(aluno => aluno.ra === raBuscado);
-  if (aluno) {
-    console.log("\nAluno encontrado:");
-    console.log(`Nome: ${aluno.nome}, RA: ${aluno.ra}, Idade: ${aluno.idade}, Sexo: ${aluno.sexo}, Média: ${aluno.media}, Resultado: ${aluno.resultado}`);
-  } else {
-    console.log("\nAluno não encontrado.");
-  }
-}
+
 
 exibirMenu();
